@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Services
+// import history from "./services/history.js";
+
+// Toastify
+import { ToastContainer } from "react-toastify";
+
+// Router Dom
+import { BrowserRouter } from "react-router-dom";
+
+// Components
+import Header from "./components/Header";
+
+// Routes
+import RoutesClient from "./routes/index.jsx";
+
+// Redux
+import { Provider } from "react-redux";
+import { store, persistor } from "./store/index";
+// Redux -> Persist
+import { PersistGate } from "redux-persist/integration/react"; // Pass datas to all components
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <Header />
+          <RoutesClient />
+          <ToastContainer autoClose={3000} theme="dark" position="top-right" />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  );
 }
 
-export default App
+export default App;
