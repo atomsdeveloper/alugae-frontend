@@ -1,5 +1,5 @@
 // Styles
-import { Anchor } from "./styled";
+import { Anchor, Paragraph } from "./styled";
 
 // React Router Dom
 import type { LinkProps } from "react-router-dom";
@@ -7,8 +7,20 @@ import type { LinkProps } from "react-router-dom";
 export interface CustomLinkProps extends LinkProps {
   children: React.ReactNode;
   bg?: boolean;
+  width?: string;
+  height?: string;
 }
 
-export default function CustomLink({ children, ...rest }: CustomLinkProps) {
-  return <Anchor {...rest}>{children}</Anchor>;
+export default function CustomLink({
+  children,
+  bg = false,
+  width,
+  height,
+  ...rest
+}: CustomLinkProps) {
+  return (
+    <Anchor $bg={bg} $width={width} $height={height} {...rest}>
+      <Paragraph $bg={bg}>{children}</Paragraph>
+    </Anchor>
+  );
 }
