@@ -1,6 +1,8 @@
 // Services
 // import history from "./services/history.js";
 
+// Global Styles
+
 // Toastify
 import { ToastContainer } from "react-toastify";
 
@@ -18,12 +20,14 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./store/index";
 // Redux -> Persist
 import { PersistGate } from "redux-persist/integration/react"; // Pass datas to all components
+import { GlobalStyles } from "./styles/globals.js";
 
 function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter>
+          <GlobalStyles />
           <Header />
           <RoutesClient />
           <ToastContainer autoClose={3000} theme="dark" position="top-right" />
