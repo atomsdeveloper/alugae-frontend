@@ -9,16 +9,20 @@ export interface ButtonProps
   children: React.ReactNode;
   bg?: boolean;
   text?: string;
+  width?: string;
+  height?: string;
 }
 
 export default function CustomButton({
   children,
   text,
+  width,
+  height,
   bg = false,
   ...props
 }: ButtonProps) {
   return (
-    <Button $bg={bg} {...props}>
+    <Button $bg={bg} $width={width} $height={height} {...props}>
       {children}
       {text}
     </Button>

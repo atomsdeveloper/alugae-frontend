@@ -7,6 +7,8 @@ import * as Colors from "../../config/colors";
 // Type
 interface ButtonProps {
   $bg?: boolean;
+  $width?: string;
+  $height?: string;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -21,8 +23,9 @@ export const Button = styled.button<ButtonProps>`
         color: ${Colors.textPrimary};
       }
     `}
-  width: 40px;
-  height: 40px;
+
+  width: ${(props) => props.$width || "40px"};
+  height: ${(props) => props.$height || "40px"};
 
   display: flex;
   align-items: center;
