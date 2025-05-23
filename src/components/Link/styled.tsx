@@ -3,17 +3,33 @@ import styled from "styled-components";
 // Router Dom
 import { Link } from "react-router-dom";
 
-// Global Colors
-import { infoColorLight, primaryColor } from "../../config/colors";
+// Colors
+import {
+  borderRadiusMd,
+  infoColorLight,
+  paddingLg,
+  paddingXl,
+  primaryColorLight,
+  textPrimary,
+} from "../../config/colors";
+
+interface AnchorProps {
+  $bg?: boolean;
+}
 
 // Anchor / Link
-export const Anchor = styled(Link)`
-  color: ${infoColorLight};
-  text-decoration: none;
-  padding: 0.25rem;
+export const Anchor = styled(Link)<AnchorProps>`
+  ${(props) =>
+    props.$bg &&
+    `
+      color: ${textPrimary};
+      background-color: ${infoColorLight};
+      border-radius: ${borderRadiusMd};
+      padding: ${paddingLg} ${paddingXl};
 
-  &:hover {
-    color: ${primaryColor};
-    text-decoration: underline;
-  }
+      &:hover {
+        background-color: ${primaryColorLight};
+        color: ${textPrimary};
+      }
+    `}
 `;
