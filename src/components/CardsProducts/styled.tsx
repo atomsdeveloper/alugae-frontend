@@ -18,8 +18,8 @@ export const ContainerCards = styled.section`
 `;
 
 export const BoxCards = styled.div`
-  width: 90%;
-  max-width: 842px;
+  width: 100%;
+  max-width: 95%;
 `;
 
 export const CardsItems = styled.div`
@@ -53,7 +53,7 @@ export const CardLink = styled(Link)`
 `;
 
 export const CardContent = styled.div`
-  width: 80%;
+  width: 90%;
   cursor: pointer;
 
   @media only screen and (mix-width: 768px) {
