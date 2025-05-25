@@ -8,11 +8,13 @@ import styled from "styled-components";
 // }
 
 export const BoxSearch = styled.div`
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
+  margin: 0 auto;
 `;
 
 export const BoxDesc = styled.div`

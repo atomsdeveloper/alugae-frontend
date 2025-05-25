@@ -33,7 +33,11 @@ export default function Home() {
       <ContainerHome>
         <BoxSearch>
           <BoxDesc>
-            <Title text="Tudo pra facilitar a sua hospedagem." />
+            <Title
+              fontSize=""
+              color={Colors.primaryColorLight}
+              text="Tudo pra facilitar a sua hospedagem."
+            />
             <Paragraph colors={Colors.textSecondary} textCenter>
               O que você precisa está aqui. Reserve de onde estiver.
             </Paragraph>
