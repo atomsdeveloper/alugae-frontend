@@ -14,50 +14,47 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     outline: none;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
-  html, body, #root {
+  html {
+    font-size: 62.5%;
+  } 
+  
+  body, #root {
     height: 100%;
   }
 
   body {
-    background-color: ${Colors.primaryColorDark};
     color: ${Colors.primaryColor};
     font-size: ${Colors.fontSizeBase};
   }
 
   button {
-    cursor: ${Colors.buttonCursor};
-    background: ${Colors.buttonBackground};
-    color: ${Colors.buttonColor};
-    border: ${Colors.buttonBorder};
     padding: ${Colors.buttonPadding};
-    border-radius: ${Colors.borderRadiusSm};
+    border-radius: ${Colors.borderRadiusXl};
     font-weight: ${Colors.fontWeightBold};
     transition: all 300ms;
-    font-family: 'Roboto';
+    font-family: 'Poppins';
+    border: none;
+    background-color: transparent;
   }
 
   button:hover {
-    background: ${Colors.buttonHoverBackground};
-    color: ${Colors.buttonHoverColor};
+    cursor: ${Colors.buttonCursor};
   }
 
   button:disabled {
-    background: ${Colors.buttonDisabledBackground};
-    color: ${Colors.buttonDisabledColor};
     cursor: ${Colors.buttonDisabledCursor};
   }
 
   a {
     text-decoration: ${Colors.anchorTextDecoration};
-    color: ${Colors.anchorColor};
     padding: ${Colors.anchorPadding};
+    font-weight: ${Colors.fontWeightMedium};
   }
 
   a:hover {
-    color: ${Colors.anchorHoverColor};
     text-decoration: ${Colors.anchorHoverTextDecoration};
   }
 
@@ -120,24 +117,42 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${Colors.spanFontSize};
   }
 
-  // Toastify styles
-  body .Toastify__toast-container .Toastify__toast-success {
-    background: ${Colors.successColorDark};
+  // Toastify
+  .Toastify__toast-container--top-right {
+    top: 100px !important;
+    right: 2rem;
   }
 
-  body .Toastify__toast-container .Toastify__toast-error {
-    background: ${Colors.errorColorDark};
-  }
+  @media only screen and (max-width: 480px) {
+    .Toastify__toast-container {
+      width: calc(100% - 4rem);
+      left: 2rem !important;
+      right: 2rem !important;
+
+    }
+    
+    .Toastify__toast {
+      border-radius: ${Colors.borderRadiusSm};
+    }
+}
 `;
 
-// Container Global
+// Container Global Template
 export const Container = styled.section`
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: ${Colors.paddingXl};
+  width: 100%;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-  border-radius: ${Colors.borderRadiusSm};
-  box-shadow: ${Colors.shadowMd};
-  background: ${Colors.secondaryColorLight};
+`;
+
+export const ContainerPages = styled.section`
+  width: 100%;
+  height: calc(100vh - 8rem);
+`;
+
+export const ContainerHome = styled.section`
+  width: 90vw;
+  height: 100%;
+  margin: 0 auto;
 `;
