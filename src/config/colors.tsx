@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 // ====== Colors ======
 
 // Primary (azul suave)
@@ -13,7 +15,7 @@ export const secondaryColorDeep = "#000039"; // o azul mais escuro
 
 // Text colors
 export const textPrimary = "#FFFFFF"; // para dark mode
-export const textSecondary = "#CCCCCC";
+export const textSecondary = "#9b9999";
 export const backgroundColor = "#030f49"; // para dark mode
 export const surfaceColor = "#061e5a"; // cards, containers
 export const borderColor = "#082d6a"; // separadores
@@ -47,16 +49,17 @@ export const paddingXl = "2rem";
 export const borderRadiusSm = "4px";
 export const borderRadiusMd = "8px";
 export const borderRadiusLg = "16px";
+export const borderRadiusXl = "50%";
 
 // ====== Font Sizes ======
-export const fontSizeXs = "0.75rem";
-export const fontSizeSm = "0.875rem";
-export const fontSizeBase = "1rem";
-export const fontSizeMd = "1.125rem";
-export const fontSizeLg = "1.25rem";
-export const fontSizeXl = "1.5rem";
-export const fontSize2xl = "2rem";
-export const fontSize3xl = "3rem";
+export const fontSizeXs = "0.875rem";
+export const fontSizeSm = "1.275rem";
+export const fontSizeBase = "1.6rem";
+export const fontSizeMd = "2rem";
+export const fontSizeLg = "2.4rem";
+export const fontSizeXl = "2.8rem";
+export const fontSize2xl = "3.2rem";
+export const fontSize3xl = "3.6rem";
 export const fontSize4xl = "4rem";
 
 // ====== Font Weights ======
@@ -106,14 +109,14 @@ export const buttonDisabledColor = "#aaaaaa";
 export const buttonDisabledCursor = "not-allowed";
 
 // ====== Anchor ======
-export const anchorColor = infoColorLight;
+export const anchorColor = textPrimary;
 
 export const anchorTextDecoration = "none";
 
 export const anchorPadding = "0.25rem";
 
-export const anchorHoverColor = primaryColor;
-export const anchorHoverTextDecoration = "underline";
+export const anchorHoverColor = primaryColorDark;
+export const anchorHoverTextDecoration = "none";
 
 // ====== Titles ======
 export const h1Color = primaryColor;
@@ -170,44 +173,7 @@ export const spanFontSize = fontSizeSm;
 //   }
 // `;
 
-// // Button
-// export const Button = styled.button`
-//   background: ${primaryColor};
-//   color: #ffffff;
-//   border: 1px solid ${primaryColorDark};
-//   padding: 0.5rem 1rem;
-//   cursor: pointer;
-
-//   &:hover {
-//     background: ${primaryColorLight};
-//     color: #ffffff;
-//   }
-
-//   &:disabled {
-//     background: ${primaryColorDark};
-//     color: #aaaaaa;
-//     cursor: not-allowed;
-//   }
-// `;
-
-// // Anchor / Link
-// export const Anchor = styled.a`
-//   color: ${infoColor};
-//   text-decoration: none;
-//   padding: 0.25rem;
-
-//   &:hover {
-//     color: ${primaryColor};
-//     text-decoration: underline;
-//   }
-// `;
-
 // // Titles
-// export const H1 = styled.h1`
-//   color: ${primaryColor};
-//   padding: 0.5rem 0;
-//   font-size: ${fontSize4xl};
-// `;
 
 // export const H2 = styled.h2`
 //   color: ${secondaryColor};
@@ -239,16 +205,16 @@ export const spanFontSize = fontSizeSm;
 //   font-size: ${fontSizeMd};
 // `;
 
-// // Paragraph
-// export const Paragraph = styled.p`
-//   color: #ffffff;
-//   padding: 0.25rem 0;
-//   font-size: ${fontSizeBase};
-// `;
+// Paragraph
+export const Paragraph = styled.p`
+  color: ${primaryColor};
+  padding: 0.25rem 0;
+  font-size: ${fontSizeBase};
+`;
 
-// // Span
-// export const Span = styled.span`
-//   color: #cccccc;
-//   padding: 0.1rem 0;
-//   font-size: ${fontSizeSm};
-// `;
+// Span
+export const Span = styled.span`
+  color: #cccccc;
+  padding: 0.1rem 0;
+  font-size: ${fontSizeSm};
+`;
