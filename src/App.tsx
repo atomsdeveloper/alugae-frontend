@@ -1,36 +1,57 @@
-// Services
-// import history from "./services/history.js";
+// Redux
+import { Provider } from "react-redux";
+import { store, persistor } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
 
-// Global Styles
-
-// Toastify
-import { ToastContainer } from "react-toastify";
-
-// Router Dom
+// Router
 import { BrowserRouter } from "react-router-dom";
+
+// Context
+import { MenuToggleProvider } from "./context/MenuToggleContext";
 
 // Components
 import Header from "./components/Header";
+import Menu from "./components/Menu";
 
 // Routes
-import RoutesClient from "./routes/index.jsx";
+import RoutesClient from "./routes";
 
-// Redux
-import { Provider } from "react-redux";
-import { store, persistor } from "./store/index";
-// Redux -> Persist
-import { PersistGate } from "redux-persist/integration/react"; // Pass datas to all components
-import { GlobalStyles } from "./styles/globals.js";
+// Template
+import Template from "./template";
+
+// Toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// Global Styles
+import { GlobalStyles } from "./styles/globals";
 
 function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter>
-          <GlobalStyles />
-          <Header />
-          <RoutesClient />
-          <ToastContainer autoClose={3000} theme="dark" position="top-right" />
+          <MenuToggleProvider>
+            <GlobalStyles />
+            <ToastContainer
+              position="top-right"
+              autoClose={false}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick={true}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              icon={false}
+            />
+            <Header />
+            <Menu />
+            <Template>
+              <RoutesClient />
+            </Template>
+          </MenuToggleProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>
