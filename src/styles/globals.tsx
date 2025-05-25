@@ -152,7 +152,7 @@ export const ContainerPages = styled.section`
 `;
 
 export const ContainerHome = styled.section`
-  width: 90vw;
+  width: 95vw;
   height: 100%;
   margin: 0 auto;
 `;
