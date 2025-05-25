@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 // Colors
-import { textSecondary } from "../../config/colors";
+// import { textSecondary } from "../../config/colors";
 
 // interface BoxSearchProps {
 //   $bg?: boolean;
 // }
 
-export const BoxSearch = styled.p`
+export const BoxSearch = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,12 +22,11 @@ export const BoxDesc = styled.div`
 `;
 
 export const BoxInput = styled.div`
+  height: 5rem;
   width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-
-  background-color: ${textSecondary};
 `;
