@@ -5,21 +5,24 @@ import { Route, Routes } from "react-router-dom";
 // import PrivateRoute from "./PrivateRoute.jsx";
 
 // Pages
-import Home from "../templates/Home";
-// import Login from "../pages/Login";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
 // import Register from "../pages/Register";
 // import Students from "../pages/Students";
 // import Student from "../pages/Student";
 // import Photos from "../pages/Photos";
-import NotFound from "../components/NotFound";
+import NotFound from "../pages/NotFound";
 
 export default function RoutesClient() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
 
-      {/* <Route path="/login" element={<Login />} />
+      <Route path="/home" element={<Home />} />
 
+      <Route path="/login" element={<Login />} />
+
+      {/*
       <Route path="/register" element={<Register />} />
 
       <Route
