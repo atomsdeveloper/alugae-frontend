@@ -11,22 +11,26 @@ export const ToastWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 12px;
 `;
 
 export const ContentRow = styled.div`
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
   color: ${Colors.primaryColorLight};
 `;
 
-export const IconWrapper = styled(HiOutlineTicket)`
-  flex: 0.3;
+export const ContainerTitle = styled.div`
+  display: flex;
+
+  justify-content: start;
+  align-items: center;
+  gap: 0.8rem;
 `;
+
+export const IconWrapper = styled(HiOutlineTicket)``;
 
 export const Text = styled.p`
-  flex: 0.7;
-  margin: 0;
-  color: ${Colors.primaryColorLight};
+  color: ${Colors.textSecondary};
 `;
