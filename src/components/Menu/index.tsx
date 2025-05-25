@@ -3,8 +3,10 @@ import React from "react";
 // Styled Components
 import { Section, ListLinks, BoxLogo, HeaderMenu, Overlay } from "./styled";
 
+// Colors
+import * as Colors from "../../config/colors";
+
 // Components
-import CustomLink from "../Link";
 import CustomImage from "../Image";
 import CustomButton from "../Button";
 
@@ -12,32 +14,33 @@ import CustomButton from "../Button";
 import { useMenuToggle } from "../../hook/useMenuToggle";
 
 // Redux
-// import * as Actions from "../../store/modules/auth/actions";
+import * as Actions from "../../store/modules/auth/actions";
 
 // Redux
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // React Router
 import { useNavigate } from "react-router-dom";
 
 // Toastify
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 // Icons
 import { IoIosClose } from "react-icons/io";
 
 // Helpers
 import { liValues } from "../../helpers/data";
+import Paragraph from "../Paragraph";
 
-// // Types
-// interface RootState {
-//   auth: {
-//     isLoggedIn: boolean;
-//   };
-// }
+// Types
+interface RootState {
+  auth: {
+    isLoggedIn: boolean;
+  };
+}
 
 export default function Menu() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { isOpen, closeMenu } = useMenuToggle();
@@ -57,9 +60,9 @@ export default function Menu() {
     }
   }, [isOpen, visible]);
 
-  if (!visible) return null;
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
 
-  // const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  if (!visible) return null;
 
   const handleBackToHome = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -78,13 +81,19 @@ export default function Menu() {
     closeMenu();
   };
 
-  // const handleLogout = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-  //   e.preventDefault();
+  const handleNavigationPage = (link: string) => {
+    if (!isOpen) return;
+    closeMenu();
+    navigate(`/${link}`);
+  };
 
-  //   toast.info("Você saiu do sistema.");
-  //   dispatch(Actions.ButtonLoginClickFailure());
-  //   navigate("/");
-  // };
+  const handleLogout = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+
+    toast.info("Você saiu do sistema.");
+    dispatch(Actions.ButtonLoginClickFailure());
+    navigate("/");
+  };
   return (
     <>
       {isOpen && (
@@ -93,7 +102,11 @@ export default function Menu() {
           <Section $isClosing={isClosing}>
             <HeaderMenu>
               <BoxLogo>
-                <CustomButton onClick={handleBackToHome}>
+                <CustomButton
+                  width="40px"
+                  height="40px"
+                  onClick={handleBackToHome}
+                >
                   <CustomImage
                     src="/atomo.png"
                     alt="Logo da empresa"
@@ -110,20 +123,35 @@ export default function Menu() {
             </HeaderMenu>
 
             <ListLinks>
-              <>
-                {liValues.map(({ id, link, text, icon: Icon }) => (
-                  <CustomLink
-                    key={id}
-                    to={`/${link}`}
-                    rel="noopener noreferrer"
-                  >
-                    <CustomButton>
-                      <Icon size={18} color="#fff" />
-                      <p>{text}</p>
+              {!isLoggedIn ? (
+                liValues.map(({ id, link, text, bg }) => {
+                  const color =
+                    id > 0 ? Colors.primaryColorLight : Colors.textPrimary;
+
+                  return (
+                    <CustomButton
+                      key={id}
+                      rel="noopener noreferrer"
+                      bg={bg}
+                      width="100%"
+                      border={Colors.borderRadiusMd}
+                      height="4.6rem"
+                      onClick={() => handleNavigationPage(link)}
+                    >
+                      <Paragraph colors={color}> {text}</Paragraph>
                     </CustomButton>
-                  </CustomLink>
-                ))}
-              </>
+                  );
+                })
+              ) : (
+                <CustomButton
+                  rel="noopener noreferrer"
+                  width="100%"
+                  height="4.6rem"
+                  onClick={handleLogout}
+                >
+                  <Paragraph bg> Sair </Paragraph>
+                </CustomButton>
+              )}
             </ListLinks>
           </Section>
         </>

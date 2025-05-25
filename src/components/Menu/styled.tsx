@@ -43,7 +43,7 @@ export const Section = styled.section<SectionProps>`
   z-index: 1000;
   background-color: ${Colors.textPrimary};
 
-  padding: 1rem;
+  padding: 1.2rem;
 
   animation: ${({ $isClosing }) =>
     $isClosing
@@ -73,10 +73,12 @@ export const BoxLogo = styled.div`
 
 export const ListLinks = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3.2rem;
+  gap: 1rem;
 
   height: 100%;
 
-  background-color: aqua;
+  margin-top: 1rem;
+  padding: 1rem;
 `;
