@@ -18,6 +18,7 @@ import CustomButton from "../../components/Button";
 import Paragraph from "../../components/Paragraph";
 import Title from "../../components/Title";
 import Input from "../../components/Input";
+import CardsProducts from "../../components/CardsProducts";
 
 // Icons
 import { CiLocationOn } from "react-icons/ci";
@@ -57,6 +58,8 @@ export default function Home() {
             </CustomButton>
           </BoxInput>
         </BoxSearch>
+
+        <CardsProducts></CardsProducts>
       </ContainerHome>
     </ContainerPages>
   );
