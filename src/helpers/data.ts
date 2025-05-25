@@ -11,14 +11,14 @@ export const liProducts = [
   {
     id: 0,
     text: "Casas",
-    img: "caminho da imagem",
-    alt: "Imagem do Produto referente á casas.",
+    img: "/casa.png",
+    alt: "Imagem do Prduto referente á casas.",
     link: "reserves?type=casa",
   },
   {
     id: 1,
     text: "Apartamentos",
-    img: "caminho da imagem",
+    img: "/edifio.png",
     alt: "Imagem do Produto referente á apartamentos.",
     link: "reserves?type=ap",
   },

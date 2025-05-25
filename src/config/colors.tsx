@@ -96,7 +96,7 @@ export const inputFocusOutline = "none";
 export const buttonBackground = primaryColor;
 export const buttonColor = "#ffffff";
 
-export const buttonBorder = `1px solid ${primaryColorDark}`;
+export const buttonBorder = `1px solid ${primaryColorLight}`;
 export const buttonPadding = "0.5rem 1rem";
 
 export const buttonCursor = "pointer";

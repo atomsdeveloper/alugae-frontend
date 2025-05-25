@@ -6,6 +6,19 @@ import * as Colors from "../../config/colors";
 // React Router Dom
 import { Link } from "react-router-dom";
 
+// Types
+export interface CardLinkProps {
+  $bgCard: string;
+}
+
+export interface CardButtonProps {
+  $bgButton: string;
+}
+
+export interface CardTextProps {
+  $textColor: string;
+}
+
 export const ContainerCards = styled.section`
   width: 100%;
   height: auto;
@@ -26,7 +39,7 @@ export const CardsItems = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 180px;
+  height: 184px;
   width: 100%;
 `;
 
@@ -37,19 +50,28 @@ export const Card = styled.div`
   cursor: pointer;
 `;
 
-export const CardLink = styled(Link)`
+export const CardLink = styled(Link)<CardLinkProps>`
   width: 100%;
   border-radius: 20px;
   text-align: center;
-  color: #fff;
+
+  color: ${(props) =>
+    props.$bgCard === Colors.textPrimary
+      ? Colors.primaryColorLight
+      : Colors.textPrimary};
+
+  border: ${(props) =>
+    props.$bgCard === Colors.textPrimary ? Colors.buttonBorder : "none"};
+
   display: flex;
+  box-shadow: ${Colors.shadowSm};
   align-items: center;
   justify-content: center;
   height: 100%;
   overflow: hidden;
   text-decoration: none;
 
-  background-color: #ccc; // Remover
+  background-color: ${(props) => (props.$bgCard ? props.$bgCard : "")};
 `;
 
 export const CardContent = styled.div`
@@ -68,7 +90,7 @@ export const CardContent = styled.div`
 `;
 
 export const CardImage = styled.div`
-  height: 75px;
+  height: 80px;
   width: 90%;
   overflow: hidden;
   margin: 0 auto;
@@ -84,27 +106,30 @@ export const CardImage = styled.div`
 `;
 
 export const Image = styled.img`
-  object-fit: contain;
+  object-fit: cover;
   resize: auto;
   height: 100%;
   width: 100%;
 
   @media only screen and (min-width: 768px) {
     transform: translateY(16px);
+    object-fit: contain;
   }
 `;
 
-export const CardParagraph = styled.p`
+export const CardParagraph = styled.p<CardTextProps>`
   font-size: ${Colors.fontSizeMd};
   font-weight: 500;
   margin: 0 0 10px;
+
+  color: ${(props) => props.$textColor};
 
   @media only screen and (max-width: 550px) {
     font-size: ${Colors.fontSizeBase};
   }
 `;
 
-export const CardButton = styled.button`
+export const CardButton = styled.button<CardButtonProps>`
   display: flex;
   width: 100%;
   height: 36px;
@@ -114,4 +139,14 @@ export const CardButton = styled.button`
   font-weight: 500;
   align-items: center;
   padding: 0 5px;
+
+  color: ${(props) =>
+    props.$bgButton === Colors.textPrimary
+      ? Colors.primaryColorLight
+      : Colors.textPrimary};
+
+  background-color: ${(props) =>
+    props.$bgButton === Colors.textPrimary
+      ? Colors.textPrimary
+      : Colors.primaryColorLight};
 `;
