@@ -9,6 +9,7 @@ interface ButtonProps {
   $bg?: boolean;
   $width?: string;
   $height?: string;
+  $border?: string;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -20,26 +21,26 @@ export const Button = styled.button<ButtonProps>`
 
       &:hover {
         background-color: ${Colors.primaryColorLight};
-        color: ${Colors.textPrimary};
       }
     `}
 
   width: ${(props) => props.$width || "40px"};
   height: ${(props) => props.$height || "40px"};
 
+  border-radius: ${(props) => props.$border || "none"};
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 0.5rem 1rem;
-  cursor: pointer;
 
   &:hover {
+    cursor: pointer;
     color: ${Colors.primaryColorLight};
   }
 
   &:disabled {
-    /* color: #aaaaaa; */
     cursor: not-allowed;
   }
 `;
