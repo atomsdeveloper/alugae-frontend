@@ -24,8 +24,8 @@ export const Button = styled.button<ButtonProps>`
       }
     `}
 
-  width: ${(props) => props.$width || "40px"};
-  height: ${(props) => props.$height || "40px"};
+  width: ${(props) => (props.$width ? props.$width : "35px")};
+  height: ${(props) => (props.$height ? props.$height : "35px")};
 
   border-radius: ${(props) => props.$border || "none"};
 

@@ -16,13 +16,12 @@ export const TitleStyled = styled.h1<TitleProps>`
 
   text-align: center;
 
-  @media only screen and (max-width: 800px) {
-    font-size: ${(props) =>
-      props.$fontSize ? props.$fontSize : Colors.fontSize4xl};
-  }
-
   @media only screen and (max-width: 665px) {
     font-size: ${(props) =>
-      props.$fontSize ? props.$fontSize : Colors.fontSize4xl};
+      props.$fontSize ? props.$fontSize : Colors.fontSize3xl};
+  }
+
+  @media only screen and (max-width: 375px) {
+    font-size: 2.5rem;
   }
 `;

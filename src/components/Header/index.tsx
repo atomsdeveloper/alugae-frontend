@@ -69,20 +69,20 @@ export default function Header() {
   return (
     <Nav>
       <BoxLogo>
-        <CustomButton width="40px" height="40px" onClick={handleBackToHome}>
+        <CustomButton onClick={handleBackToHome}>
           <CustomImage
             src="/atomo.png"
             alt="Logo da empresa"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
             loading="lazy"
           />
         </CustomButton>
       </BoxLogo>
 
       <ListLinks>
-        <CustomButton bg onClick={handleMenuToggle}>
-          <IoIosMore size={18} color="#fff" />
+        <CustomButton width="30px" height="30px" bg onClick={handleMenuToggle}>
+          <IoIosMore size={24} color="#fff" />
         </CustomButton>
       </ListLinks>
     </Nav>

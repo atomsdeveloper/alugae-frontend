@@ -103,22 +103,27 @@ export default function Menu() {
             <HeaderMenu>
               <BoxLogo>
                 <CustomButton
-                  width="40px"
-                  height="40px"
+                  width="35px"
+                  height="35px"
                   onClick={handleBackToHome}
                 >
                   <CustomImage
                     src="/atomo.png"
                     alt="Logo da empresa"
-                    width={50}
-                    height={50}
+                    width={40}
+                    height={40}
                     loading="lazy"
                   />
                 </CustomButton>
               </BoxLogo>
 
-              <CustomButton bg onClick={handleMenuToggle}>
-                <IoIosClose size={18} color="#fff" />
+              <CustomButton
+                bg
+                onClick={handleMenuToggle}
+                height="30px"
+                width="30px"
+              >
+                <IoIosClose size={24} color="#fff" />
               </CustomButton>
             </HeaderMenu>
 
